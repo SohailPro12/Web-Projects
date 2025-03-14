@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <style>
+      .c-item {
+        height: 300px;
+      }
+      .c-img {
+        height: auto;
+        object-fit: cover;
+      }
+
+      /* products styles */
+      .main .container {
+        margin-top: 20px;
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .card-img-right {
+        height: auto;
+        width: 200px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+
+      .btn-primary {
+        background-color: #f1356d;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      @media (min-width: 768px) and (max-width: 991px) {
+        .card {
+          flex-direction: row;
+          text-align: left;
+        }
+
+        .card-img-right {
+          width: 250px;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 0;
+        }
+        .card-body {
+          padding: 20px;
+        }
+      }
+      @media (min-width: 992px) {
+        .card {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .card-img-right {
+          width: 100%;
+          height: 250px;
+          border-top-right-radius: 10px;
+          border-top-left-radius: 10px;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .card-text {
+          display: none;
+        }
+      }
+
+      /* team */
+      section h2 {
+        margin-top: 20px;
+        margin-left: 10px;
+        text-decoration: underline;
+      }
+      .team {
+        margin: 75px 0;
+      }
+      .team h2 {
+        font-weight: bold;
+        padding-bottom: 10px;
+      }
+      .profile {
+        margin-top: 20px;
+      }
+
+      .img-box img {
+        width: 150px; /* Adjust the size */
+        height: 150px; /* Ensure it's square */
+        border-radius: 50%; /* Make it perfectly round */
+        object-fit: cover; /* Prevent distortion */
+        border: 3px solid #fff; /* Optional: Add a white border */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">ShopLogo</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Services
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Web Development</a></li>
+                <li><a class="dropdown-item" href="#">Graphic Design</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">SEO Optimization</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              <i class="bi bi-search"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <section class="main">
+      <!-- Carousel -->
+      <div id="main-carousel" class="carousel slide">
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#main-carousel"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#main-carousel"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#main-carousel"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active c-item">
+            <img
+              src="https://images.unsplash.com/photo-1736134869386-78142c34260f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxOXx8fGVufDB8fHx8fA%3D%3D"
+              class="d-block w-100 c-img"
+              alt="slide1"
+            />
+          </div>
+          <div class="carousel-item c-item">
+            <img
+              src="https://images.unsplash.com/photo-1740816814099-3c22452ac6c6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyMnx8fGVufDB8fHx8fA%3D%3D"
+              class="d-block w-100 c-img"
+              alt="slide2"
+            />
+          </div>
+          <div class="carousel-item c-item">
+            <img
+              src="https://images.unsplash.com/photo-1736967439915-de3e2b4d48af?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzMnx8fGVufDB8fHx8fA%3D%3D"
+              class="d-block w-100 c-img"
+              alt="slide3"
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#main-carousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#main-carousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <!-- Products/cards -->
+      <div class="container">
+        <div class="row gy-3">
+          <div class="col-lg-4 col-md-12">
+            <div class="card">
+              <img
+                src="https://picsum.photos/200/300"
+                class="card-img-right"
+                alt="product1"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Product 1</h5>
+                <p class="card-text">
+                  This is a great product that offers excellent value for money.
+                </p>
+                <a href="#" class="btn btn-primary">Buy Now</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12">
+            <div class="card">
+              <img
+                src="https://picsum.photos/200/300"
+                class="card-img-right"
+                alt="product2"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Product 2</h5>
+                <p class="card-text">
+                  This product is known for its durability and high performance.
+                </p>
+                <a href="#" class="btn btn-primary">Buy Now</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12">
+            <div class="card">
+              <img
+                src="https://picsum.photos/200/300"
+                class="card-img-right"
+                alt="product3"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Product 3</h5>
+                <p class="card-text">
+                  Experience the best quality with this amazing product.
+                </p>
+                <a href="#" class="btn btn-primary">Buy Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="team">
+      <div class="container">
+        <h2>Our Team:</h2>
+        <div class="row">
+          <div class="col-md-4 profile text-center">
+            <div class="img-box">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpzctMR9cpkyUXGqpSA7E_BLYOM5HsbNkv8Q&s"
+                class="img-fluid rounded-circle"
+                alt="m1"
+              />
+              <h3>John Doe</h3>
+              <h4>Backend Developer</h4>
+              <p>
+                John is an expert in server-side development and database management.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 profile text-center">
+            <div class="img-box">
+              <img
+                src="https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/44/408316/1.jpg?1185"
+                class="img-fluid rounded-circle"
+                alt="m2"
+              />
+              <h3>Jane Smith</h3>
+              <h4>UI/UX Designer</h4>
+              <p>
+                Jane specializes in creating user-friendly and visually appealing designs.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 profile text-center">
+            <div class="img-box">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM-EITDV02nV9nwye9Xwt4CMYoAvhWdS_Z-A&s"
+                class="img-fluid rounded-circle"
+                alt="m3"
+              />
+              <h3>Michael Brown</h3>
+              <h4>Project Manager</h4>
+              <p>
+                Michael ensures that all projects are completed on time and within budget.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light text-center p-4">
+      <div class="container">
+        <div class="row">
+          <!-- Contact Info -->
+          <div class="col-md-6 text-md-start text-center mb-3">
+            <h5>Contact Us</h5>
+            <p><i class="bi bi-telephone"></i> Phone: 123-456-789</p>
+            <p><i class="bi bi-envelope"></i> Email: contact@yourcompany.com</p>
+            <p><i class="bi bi-geo-alt"></i> Address: 123, Main Road, City</p>
+          </div>
+
+          <!-- Google Maps -->
+          <div class="col-md-6">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3313.073013394073!2d-118.4117326847836!3d34.06421908060769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0x1f1f6b8b7f4b7b1d!2sSanta%20Monica%20Pier!5e0!3m2!1sen!2sfr!4v1636823660006!5m2!1sen!2sfr"
+              width="100%"
+              height="200"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+
+        <hr class="my-3 bg-light" />
+
+        <!-- Copyright -->
+        <p class="mb-0">© 2024 YourCompany. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

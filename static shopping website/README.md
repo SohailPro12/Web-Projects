@@ -1,1 +1,1 @@
-this is a static shopping website 
+this is a static shopping website  

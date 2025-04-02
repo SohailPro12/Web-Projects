@@ -1,0 +1,37 @@
+**Introduction à JavaScript pour le Web**
+JavaScript est un langage de programmation utilisé pour ajouter du dynamisme aux pages Web. Il permet d'interagir avec l'utilisateur, de manipuler le contenu et de modifier les styles en temps réel.
+
+### **Généralités**
+- **Moteurs de script** : Exécutent JavaScript dans les navigateurs (ex : V8 pour Chrome, SpiderMonkey pour Firefox).
+- **Standards** : ECMAScript définit les règles du langage.
+- **Devtools** : Outils intégrés aux navigateurs pour déboguer et tester le code.
+
+### **Browser Object Model (BOM) et Document Object Model (DOM)**
+- **BOM** : Fournit des objets pour interagir avec le navigateur (ex : `window`, `navigator`).
+- **DOM** : Représente la structure d’une page HTML sous forme d'arbre, permettant de manipuler les éléments HTML avec JavaScript.
+
+### **Ajout de JavaScript dans une page Web**
+JavaScript peut être ajouté directement dans un fichier HTML via `<script>` ou dans un fichier externe `.js` lié à la page.
+
+### **Interagir avec la page Web : Pratique**
+1. **Sélection d'éléments HTML** :
+   - `getElementById(id)`: Sélectionne un élément par son ID.
+   - `querySelector(selector)`: Sélectionne le premier élément correspondant au sélecteur CSS.
+   - `querySelectorAll(selector)`: Sélectionne tous les éléments correspondant au sélecteur.
+
+2. **Manipulation du contenu** :
+   - `element.innerHTML`: Modifie le contenu HTML d'un élément.
+   - `element.innerText`: Modifie uniquement le texte affiché.
+
+3. **Gestion des attributs** :
+   - `getAttribute(attr)`: Récupère la valeur d’un attribut.
+   - `setAttribute(attr, value)`: Modifie un attribut.
+   - `removeAttribute(attr)`: Supprime un attribut.
+
+4. **Modification des styles CSS** :
+   - `element.style.property = "valeur"`: Change un style en ligne.
+
+5. **Gestion des classes CSS** :
+   - `element.classList.add("class")`: Ajoute une classe.
+   - `element.classList.remove("class")`: Supprime une classe.
+   - `element.classList.toggle("class")`: Ajoute ou supprime une classe selon sa présence.

@@ -1,0 +1,110 @@
+### **1. Programmer des tâches répétitives : `setInterval()`**  
+La fonction `setInterval(callback, delay)` exécute une tâche de manière répétitive après un certain délai (en millisecondes).  
+**Exemple :**  
+```js
+setInterval(() => {
+    console.log("Cette tâche s'exécute toutes les 2 secondes");
+}, 2000);
+```
+
+---
+
+### **2. Programmer une tâche retardée : `setTimeout()`**  
+La fonction `setTimeout(callback, delay)` exécute une tâche une seule fois après un certain délai.  
+**Exemple :**  
+```js
+setTimeout(() => {
+    console.log("Ce message s'affiche après 3 secondes");
+}, 3000);
+```
+
+---
+
+### **3. Arrêter un Timer : `clearInterval()` et `clearTimeout()`**  
+- `clearInterval(intervalID)` : Arrête un `setInterval`.  
+- `clearTimeout(timeoutID)` : Annule un `setTimeout` avant son exécution.  
+**Exemple :**  
+```js
+let interval = setInterval(() => console.log("Exécution répétitive"), 1000);
+setTimeout(() => clearInterval(interval), 5000); // Arrête après 5 secondes
+```
+
+---
+
+### **4. Fonctionnement du moteur JavaScript : Event Loop, Pile, File, Web APIs**  
+- **Pile d'exécution (Call Stack)** : Exécute les fonctions synchrones.  
+- **Web APIs** : Prend en charge les tâches asynchrones (ex. `setTimeout`, `fetch`).  
+- **File de messages (Task Queue, Microtask Queue)** : Contient les callbacks à exécuter après la pile.  
+- **Event Loop** : Surveille la pile et insère les tâches en attente.  
+**Exemple illustratif :**  
+```js
+console.log("Début");  
+setTimeout(() => console.log("Tâche asynchrone"), 0);  
+console.log("Fin");  
+// Affichage : Début → Fin → Tâche asynchrone
+```
+
+---
+
+### **5. Débordement de la pile et blocage du moteur JavaScript**  
+**Exemple de débordement de la pile :**  
+```js
+function recursion() {
+    recursion(); // Appel infini, provoque un "Maximum call stack size exceeded"
+}
+recursion();
+```
+**Exemple de blocage du moteur :**  
+```js
+while (true) {
+    console.log("Boucle infinie"); // Bloque tout le programme
+}
+```
+
+---
+
+### **6. Ajouter ou supprimer un écouteur d'événement : `addEventListener()` et `removeEventListener()`**  
+- `element.addEventListener("event", callback)` : Ajoute un écouteur.  
+- `element.removeEventListener("event", callback)` : Supprime un écouteur.  
+**Exemple :**  
+```js
+function clicHandler() {
+    console.log("Bouton cliqué !");
+}
+let btn = document.querySelector("button");
+btn.addEventListener("click", clicHandler);
+btn.removeEventListener("click", clicHandler);
+```
+
+---
+
+### **7. Stopper la propagation d'un événement : `stopPropagation()`**  
+Permet d'empêcher un événement de remonter dans la hiérarchie DOM.  
+**Exemple :**  
+```js
+document.getElementById("child").addEventListener("click", (event) => {
+    event.stopPropagation(); // Empêche la propagation à l'élément parent
+});
+```
+
+---
+
+### **8. Annuler le comportement par défaut d'un élément : `preventDefault()`**  
+Empêche l'exécution de l'action par défaut d’un élément (ex. empêcher l'envoi d'un formulaire).  
+**Exemple :**  
+```js
+document.querySelector("form").addEventListener("submit", (event) => {
+    event.preventDefault(); // Empêche l'envoi du formulaire
+});
+```
+
+---
+
+### **9. Accéder aux informations d'un événement**  
+L’objet `event` contient les détails du déclenchement (type, cible, coordonnées, etc.).  
+**Exemple :**  
+```js
+document.addEventListener("click", (event) => {
+    console.log(`Événement : ${event.type}, Position : (${event.clientX}, ${event.clientY})`);
+});
+```
